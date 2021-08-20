@@ -22,29 +22,48 @@ private:
         // is the center of the current 3x3 grid 5
         if (grid[row + 1][col + 1] != 5) { return false; } 
         
+        /*  a   b   c
+            d   e   f
+            g   h   i
+        */
+        
+        int a = grid[row][col], 
+            b = grid[row][col + 1], 
+            c = grid[row][col + 2], 
+            d = grid[row + 1][col],
+            f = grid[row + 1][col + 2], 
+            g = grid[row + 2][col], 
+            h = grid[row + 2][col + 2], 
+            i = grid[row + 2][col + 2];
+        
         // are the corners even
-        if (grid[row][col] % 2 != 0) { return false; }          // top left
-        if (grid[row][col + 2] % 2 != 0) { return false; }      // top right
-        if (grid[row + 2][col] % 2 != 0) { return false; }      // bottom left
-        if (grid[row + 2][col + 2] % 2 != 0) { return false; }  // bottom right
+        if (a % 2 != 0) { return false; }   // top left
+        if (c % 2 != 0) { return false; }   // top right
+        if (g % 2 != 0) { return false; }   // bottom left
+        if (i % 2 != 0) { return false; }   // bottom right
             
         // are the sides odd
-        if (grid[row][col+1] % 2 != 1) { return false; }        // top center
-        if (grid[row+1][col] % 2 != 1) { return false; }        // center left
-        if (grid[row+1][col+2] % 2 != 1) { return false; }      // center right
+        if (b % 2 != 1) { return false; }   // top center
+        if (d % 2 != 1) { return false; }   // center left
+        if (f % 2 != 1) { return false; }   // center right
         // bottom center is unnecessary if the last 7 checks passed
         
         // do the the rows and columns around the center add up to 15
-        if (grid[row][col] + grid[row + 1][col] + grid[row + 2][col] != 15) { return false; }   // left column
-        if (grid[row][col] + grid[row][col + 1] + grid[row][col + 2] != 15) { return false; }   // top row
-        if (grid[row + 2][col] + grid[row + 2][col + 1] + grid[row + 2][col + 2] != 15) { return false; }   // right column
+        if (a + d + g != 15) { return false; }   // left column
+        if (a + b + c != 15) { return false; }   // top row
+        if (c + f + i != 15) { return false; }   // right column
         // bottom row is unnecessary if the last 3 checks passed
         
         return true;
     }
+
 };
 
 /*
+
+a   b   c
+d   e   f
+g   h   i
 
 Magic squares using only the digits 1 - 9 are all rotations of a distinct arrangement:
 
