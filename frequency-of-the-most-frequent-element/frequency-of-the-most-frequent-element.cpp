@@ -4,13 +4,14 @@ public:
         
         std::sort(nums.begin(), nums.end());
         
-        long int left = 0, right = 0, result = 0, total = 0;
+        int result = 0, left = 0;
+        long int total = 0;
         
-        while (right < nums.size()) {
+        for (int right = 0; right < nums.size(); ++right) {
             
             total += nums[right]; 
             
-            while(nums[right] * (right - left + 1) > total + k) {
+            while(nums[right] * (long)(right - left + 1) > total + k) {
                 
                 total -= nums[left];
                     
@@ -18,8 +19,6 @@ public:
             }
             
             result = std::max(result, (right - left + 1));
-            
-            ++right;
         }
         
         return result;
