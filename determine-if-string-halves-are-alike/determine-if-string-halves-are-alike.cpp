@@ -1,32 +1,33 @@
 class Solution {
 public:
-    bool halvesAreAlike(string s) {
+    bool halvesAreAlike(string& s) {
         
-        int length = s.length();
+        int l1 = s.length(), l2 = l1 >> 1;
         short int count = 0;
         
-        for (int i = 0; i < length / 2; ++i) {
+        for (int i = 0; i < l2; ++i) {
             
-            char c = s[i];
-            
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || 
-                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+            if (isVowel(s[i])) {
                 
                 ++count;
             }
         }
         
-        for (int j = length / 2; j < length; ++j) {
+        for (int j = l2; j < l1; ++j) {
             
-            char c = s[j];
-            
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || 
-                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+            if (isVowel(s[j])) {
                 
                 --count;
             }
         }
         
         return count == 0;
+    }
+    
+private:
+    bool isVowel(char& ch) {
+        
+        return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || 
+                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U');
     }
 };
