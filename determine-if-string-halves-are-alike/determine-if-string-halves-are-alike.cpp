@@ -2,14 +2,28 @@ class Solution {
 public:
     bool halvesAreAlike(string s) {
         
+        int length = s.length();
         short int count = 0;
         
-        for (int i = 0; i < s.length(); ++i) {
+        for (int i = 0; i < length / 2; ++i) {
             
-            if (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U' || 
-                s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') {
+            char c = s[i];
+            
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || 
+                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
                 
-                count += 2*i < s.length() ? 1 : -1;
+                ++count;
+            }
+        }
+        
+        for (int j = length / 2; j < length; ++j) {
+            
+            char c = s[j];
+            
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || 
+                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+                
+                --count;
             }
         }
         
