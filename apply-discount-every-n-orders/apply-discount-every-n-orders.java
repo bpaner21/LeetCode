@@ -32,7 +32,7 @@ class Cashier {
         if (_count == _n) {
             
             _count = 0;
-            bill *= (100 - _discount) / 100.0;
+            bill *= (100.0 - _discount) / 100;
             
         }
         
