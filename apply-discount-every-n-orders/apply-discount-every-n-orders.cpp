@@ -2,9 +2,9 @@ class Cashier {
 private:
     
     int _count = 0;
-    int _n = 0;
-    int _discount = 0;
-    unordered_map<int, int> _productPrices {};
+    int _n;
+    int _discount;
+    unordered_map<int, int> _productPrices;
     
 public:
     Cashier(int& n, int& discount, vector<int>& products, vector<int>& prices) {
