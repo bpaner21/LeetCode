@@ -1,26 +1,26 @@
 class Solution {
 public:
-    int reverse(const int& x) {
+    int reverse(int x) {
         
         if (x < INT_MIN || x > INT_MAX) { return 0; }
         
         long int reverseInt = 0;
         
-        int x2 = x;
+        int newDigit, temp;
         
-        while (x2) {
+        while (x != 0) {
             
-            int newDigit = x2 % 10;
+            newDigit = x % 10;
             
-            int temp = reverseInt * 10 + newDigit;
+            temp = (reverseInt * 10) + newDigit;
             
-            if ((temp - newDigit)/ 10 != reverseInt) { return 0; }
+            if ((temp - newDigit) / 10 != reverseInt) { return 0; }
             
             reverseInt = temp;
             
-            x2 /= 10;
+            x /= 10;
         }
         
-        return reverseInt;
+        return (int)reverseInt;
     }
 };
