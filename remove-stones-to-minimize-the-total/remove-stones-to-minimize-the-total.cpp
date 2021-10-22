@@ -4,15 +4,11 @@ public:
         
         priority_queue<int> pQ(piles.begin(), piles.end());
         
-        int temp;
-        
         for (int i = 0; i < k; ++i) {
             
-            temp = pQ.top();
+            int temp = pQ.top();
             pQ.pop();
-            
-            temp -= floor(temp / 2);
-            pQ.push(temp);
+            pQ.push(temp - (temp / 2));
         }
         
         int min = 0;
