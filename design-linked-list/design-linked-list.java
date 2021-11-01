@@ -18,6 +18,7 @@ class MyLinkedList {
     private Node tail;
     private int size;
 
+    
     public MyLinkedList() {
         
         this.head = null;
@@ -28,6 +29,7 @@ class MyLinkedList {
     public int get(int index) {
         
         if (index < 0 || this.size <= index) { return -1; }
+        
         
         Node temp = head;
         
