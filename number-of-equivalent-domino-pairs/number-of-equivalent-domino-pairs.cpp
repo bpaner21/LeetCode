@@ -10,16 +10,9 @@ public:
             
             int aB = d[0] >= d[1] ? (d[0] * 10) + d[1] : (d[1] * 10) + d[0];
             
-            if (map.find(aB) != map.end()) {
-                
-                count += map[aB];
-                
-                ++map[aB];
-                
-            } else {
-                
-                map[aB] = 1;
-            }
+            if (map.find(aB) != map.end()) { count += map[aB]; }
+        
+            ++map[aB];
         }
         
         return count;
