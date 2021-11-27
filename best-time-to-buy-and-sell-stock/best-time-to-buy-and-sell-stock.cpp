@@ -10,7 +10,7 @@ public:
             
             sellHigh = max(sellHigh, p - buyLow);
             
-            //System.out.println("low: " + buyLow + ", high: " + sellHigh);
+            //cout << "low: " << buyLow << ", high: " << sellHigh << endl;
         }
         
         return sellHigh;
