@@ -2,23 +2,9 @@ class Solution {
 public:
     int findGCD(vector<int>& nums) {
         
-        int nMax = 0, nMin = 1001, remainder;
+        int nMin = *std::min_element(nums.begin(), nums.end()), 
+            nMax = *std::max_element(nums.begin(), nums.end());
         
-        for (int n : nums) {
-            
-            nMax = max(n, nMax);
-            nMin = min(n, nMin);
-        }
-        
-        while (nMin > 0) {
-            
-            remainder = nMax % nMin;
-            
-            nMax = nMin;
-            
-            nMin = remainder;
-        }
-        
-        return nMax;
+        return std::gcd(nMin, nMax);
     }
 };
