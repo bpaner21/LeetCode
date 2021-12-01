@@ -12,7 +12,7 @@ public:
     }
     
 private:
-    void DFS(int i, vector<vector<int>>& graph, vector<vector<int>>& fullPath, vector<int> currentPath) {
+    void DFS(int i, vector<vector<int>>& graph, vector<vector<int>>& fullPath, vector<int>& currentPath) {
         
         currentPath.push_back(i);
         
